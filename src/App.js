@@ -114,6 +114,9 @@ export default function App() {
 
   const isLoss = grandTotal < modal;
   const gain = grandTotal - modal;
+  
+  const TP = (gain / (grandTotal / 100)).toFixed(1);
+  const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
 
   return (
     <div>
@@ -124,6 +127,7 @@ export default function App() {
               <th>Asset</th>
               <th>Price</th>
               <th>Total</th>
+              <th>TP</th>
             </tr>
           </thead>
           <tbody>
@@ -136,6 +140,9 @@ export default function App() {
                   price={price}
                   name={name}
                   total={total}
+                  isLoss={isLoss}
+                  TPwtBTC={TPwtBTC}
+                  TP={TP}
                 />
               );
             })}
@@ -151,8 +158,8 @@ export default function App() {
               {formatter.format(gain)} ({precent}%)
             </strong>
 
-            { !isLoss && ` | TP ${(gain / (grandTotal / 100)).toFixed(1)}% 
-            or ${(gain / ((grandTotal - BTCTotal) / 100)).toFixed(1)}% ALTs` }
+            { !isLoss && ` | TP ${TP}% 
+            or ${TPwtBTC}% ALTs` }
           </div>
         )}
       </div>
