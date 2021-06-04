@@ -52,6 +52,7 @@ export default function App() {
   const [grandTotal, setTotal] = useState(0);
   const [summary, setSummary] = useState({});
   const [precent, setPercent] = useState(0);
+  const [BTCTotal, setBTCTotal] = useState(0);
 
   useEffect(() => {
     clearInterval(timer);
@@ -75,6 +76,11 @@ export default function App() {
           const color = pairs[key].color;
           const { last: price } = tickers[key];
           const v = coin * Number(price);
+          
+          if(name === 'BTC') {
+            setBTCTotal(v);
+          }
+          
           summaryData[key] = {
             color,
             name,
@@ -107,6 +113,7 @@ export default function App() {
   }, []);
 
   const isLoss = grandTotal < modal;
+  const gain = grandTotal - modal;
 
   return (
     <div>
@@ -141,8 +148,11 @@ export default function App() {
           <div className={`alert ${isLoss ? 'alert-danger' : 'alert-success'}`}>
             Gain{' '}
             <strong>
-              {formatter.format(grandTotal - modal)} ({precent}%)
+              {formatter.format(gain)} ({precent}%)
             </strong>
+
+            { !isLoss && ` | TP ${(gain / (grandTotal / 100)).toFixed(1)}% 
+            or ${(gain / ((grandTotal - BTCTotal) / 100)).toFixed(1)}% ALTs` }
           </div>
         )}
       </div>
