@@ -127,7 +127,7 @@ export default function App() {
               <th>Asset</th>
               <th>Price</th>
               <th>Total</th>
-              <th>TP</th>
+             {/* <th>TP</th>*/}
             </tr>
           </thead>
           <tbody>

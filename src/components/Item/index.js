@@ -39,10 +39,10 @@ function Item(props) {
       </td>
       <td>{price > 0 ? formatter.format(price) : price}</td>
       <td className={isBold ? 'bold' : ''}>{formatter.format(total)}</td>
-      <td style={{ color: '#155724' }}>
+      {/*<td style={{ color: '#155724' }}>
         { price > 0 && name === 'BTC' && `${(coin * TP / 100).toFixed(8)} BTC` }
         { price > 0 && name !== 'BTC' &&  `${(coin * TP / 100).toFixed(4)} ${name} | ${(coin * TPwtBTC / 100).toFixed(4)} ${name}` }
-      </td>
+      </td>*/}
     </tr>
   );
 }
