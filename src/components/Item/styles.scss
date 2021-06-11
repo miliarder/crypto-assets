@@ -12,24 +12,24 @@
 
 @keyframes fadeItGain {
   0% {
-    background-color: #ffffff;
+    background-color: inherit;
   }
   50% {
     background-color: #2cda0a;
   }
   100% {
-    background-color: #ffffff;
+    background-color: inherit;
   }
 }
 
 @keyframes fadeItLoss {
   0% {
-    background-color: #ffffff;
+    background-color: inherit;
   }
   50% {
     background-color: #da0a0a;
   }
   100% {
-    background-color: #ffffff;
+    background-color: inherit;
   }
 }

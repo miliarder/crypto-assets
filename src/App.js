@@ -119,10 +119,10 @@ export default function App() {
   const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
 
   return (
-    <div>
+    <div style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
       <div className="table-responsive table-striped">
-        <table className="table">
-          <thead className="thead-dark">
+        <table className="table table table-dark table-striped">
+          <thead>
             <tr>
               <th>Asset</th>
               <th>Price</th>
@@ -163,7 +163,7 @@ export default function App() {
           </div>
         )}
       </div>
-      <div style={{ width: 500, maxWidth: '100%' }}>
+      <div style={{ width: 500, maxWidth: '100%' }} className="cart">
         <Chart
           width={'100%'}
           height={'300px'}
@@ -177,6 +177,14 @@ export default function App() {
             })
           ]}
           rootProps={{ 'data-testid': '1' }}
+          options={{
+            backgroundColor: '333333',
+            legend: {
+              textStyle: {
+                color: 'white'
+              }
+            }
+          }}
         />
       </div>
       <ImageMasonry
