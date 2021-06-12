@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ImageMasonry from 'react-image-masonry';
 import { Chart } from 'react-google-charts';
 import Item from './components/Item';
-import './style.css';
+import './style.scss';
 
 const formatter = new Intl.NumberFormat('id', {
   style: 'currency',
@@ -168,7 +168,7 @@ export default function App() {
           width={'100%'}
           height={'300px'}
           chartType="PieChart"
-          loader={<div>Loading Chart</div>}
+          loader={<div />}
           data={[
             ['Asset', 'Value'],
             ...Object.keys(summary).map(key => {
