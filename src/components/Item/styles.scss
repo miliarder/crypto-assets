@@ -10,6 +10,14 @@
   font-weight: 600;
 }
 
+.asset-name {
+  color: white;
+  
+  &:hover{
+    color: white;
+  }
+}
+
 @keyframes fadeItGain {
   0% {
     background-color: inherit;

@@ -11,7 +11,7 @@ const formatter = new Intl.NumberFormat('id', {
 });
 
 function Item(props) {
-  const { coin, price, total, name, isBold, TP, TPwtBTC } = props;
+  const { coin, price, total, name, isBold, TP, TPwtBTC, pair } = props;
 
   const [currentTotal, setCurrentTotal] = useState(total);
   const [className, setClassName] = useState('');
@@ -35,9 +35,9 @@ function Item(props) {
   return (
     <tr className={className}>
       <td>
-        {coin} {name}
+        {pair && <a className='asset-name' target='_blank' href={`https://indodax.com/market/${pair}`}>{coin} {name}</a>}
       </td>
-      <td>{price > 0 ? formatter.format(price) : price}</td>
+      <td>{price > 0 ? <a className='asset-name' target='_blank' href={`https://indodax.com/chart/${pair}`}>{formatter.format(price)}</a> : price}</td>
       <td className={isBold ? 'bold' : ''}>{formatter.format(total)}</td>
       {/*<td style={{ color: '#155724' }}>
         { price > 0 && name === 'BTC' && `${(coin * TP / 100).toFixed(8)} BTC` }

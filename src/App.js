@@ -82,6 +82,7 @@ export default function App() {
           }
           
           summaryData[key] = {
+            pair: key.replace('_','').toUpperCase(),
             color,
             name,
             coin,
@@ -132,9 +133,10 @@ export default function App() {
           </thead>
           <tbody>
             {Object.keys(summary).map(key => {
-              const { coin, price, total, name } = summary[key];
+              const { coin, price, total, name, pair } = summary[key];
               return (
                 <Item
+                  pair={pair}
                   key={key}
                   coin={coin}
                   price={price}
