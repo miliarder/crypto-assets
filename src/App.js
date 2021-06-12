@@ -158,8 +158,8 @@ export default function App() {
               {formatter.format(gain)} ({precent}%)
             </strong>
 
-            { !isLoss && ` | TP ${TP}% 
-            or ${TPwtBTC}% ALTs` }
+            {/* !isLoss && ` | TP ${TP}% 
+            or ${TPwtBTC}% ALTs` */}
           </div>
         )}
       </div>
