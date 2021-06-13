@@ -23,12 +23,12 @@ const pairs = {
     color: '#5CACDD'
   },
   theta_idr: {
-    asset: 146.9453,
+    asset: 100.9453,
     name: 'THETA',
     color: '#5C50DD'
   },
   tfuel_idr: {
-    asset: 615.8526,
+    asset: 1280.89449439,
     name: 'TFUEL',
     color: '#CFE542'
   },
