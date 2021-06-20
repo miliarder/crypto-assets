@@ -33,7 +33,7 @@ const pairs = {
     color: '#CFE542'
   },
   ada_idr: {
-    asset: 760.179809,
+    asset: 1038.320389,
     name: 'ADA',
     color: '#1365EA'
   },
@@ -44,7 +44,7 @@ const pairs = {
   }
 };
 
-const modal = 37221917 ;
+const modal = 42821917 ;
 
 let timer;
 
