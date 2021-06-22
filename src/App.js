@@ -23,7 +23,7 @@ const pairs = {
     color: '#5CACDD'
   },
   theta_idr: {
-    asset: 100.9453 + 7.00898,
+    asset: 100.9453 + 12.003,
     name: 'THETA',
     color: '#5C50DD'
   },
@@ -33,7 +33,7 @@ const pairs = {
     color: '#CFE542'
   },
   ada_idr: {
-    asset: 1038.320389 + 39.86010000,
+    asset: 1038.320389 + 86.10381000,
     name: 'ADA',
     color: '#1365EA'
   },
@@ -43,7 +43,7 @@ const pairs = {
     color: '#FC5731'
   },
   usdt_idr: {
-    asset: 109.73539200 + 130,
+    asset: 109.73539200 + 50,
     name: 'USDT',
     color: '#8c8c8c'
   },
