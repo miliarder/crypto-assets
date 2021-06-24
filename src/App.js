@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import ImageMasonry from 'react-image-masonry';
 import { Chart } from 'react-google-charts';
 import Item from './components/Item';
+import redDot from './img/red-dot.png';
+import greenDot from './img/green-dot.png';
 import './style.scss';
 
 const formatter = new Intl.NumberFormat('id', {
@@ -58,7 +60,7 @@ export default function App() {
   const [summary, setSummary] = useState({});
   const [precent, setPercent] = useState(0);
   const [BTCTotal, setBTCTotal] = useState(0);
-
+  
   useEffect(() => {
     clearInterval(timer);
     const fetchData = async () => {
@@ -120,6 +122,11 @@ export default function App() {
 
   const isLoss = grandTotal < modal;
   const gain = grandTotal - modal;
+  
+  useEffect(() => {
+    const favicon = document.getElementById('favicon');
+    favicon.href = isLoss ? redDot : greenDot;
+  }, [isLoss]);
   
   const TP = (gain / (grandTotal / 100)).toFixed(1);
   const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
@@ -209,6 +216,11 @@ export default function App() {
         numCols={3}
         containerWidth={'100%'}
       />
+      
+      <div style={{ display: 'none' }}>
+        <img src={redDot} />
+        <img src={greenDot} />
+      </div>
     </div>
   );
 }
