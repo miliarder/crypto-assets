@@ -45,13 +45,13 @@ const pairs = {
     color: '#FC5731'
   },
   usdt_idr: {
-    asset: 109.73539200 + 50,
+    asset: 504.804078,
     name: 'USDT',
     color: '#8c8c8c'
   },
 };
 
-const modal = 47821917 ;
+const modal = 52821917 ;
 
 let timer;
 
