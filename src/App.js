@@ -44,8 +44,18 @@ const pairs = {
     name: 'BNB',
     color: '#FC5731'
   },
+  uni_idr: {
+    asset: 17.097,
+    name: 'UNI',
+    color: '#fcc19b',
+  },
+  doge_idr: {
+    asset: 716.3,
+    name: 'DOGE',
+    color: '#fce51c',
+  },
   usdt_idr: {
-    asset: 504.804078,
+    asset: 0,
     name: 'USDT',
     color: '#8c8c8c'
   },
