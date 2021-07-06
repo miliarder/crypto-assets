@@ -19,6 +19,11 @@ const pairs = {
     name: 'BTC',
     color: '#EBAC1C'
   },
+  eth_idr: {
+    asset: 0.20791188,
+    name: 'ETH',
+    color: '#000000',
+  },
   xrp_idr: {
     asset: 156.46,
     name: 'XRP',
@@ -61,7 +66,7 @@ const pairs = {
   },
 };
 
-const modal = 52821917 ;
+const modal = 59821917 ;
 
 let timer;
 
