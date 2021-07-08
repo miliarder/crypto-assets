@@ -54,6 +54,11 @@ const pairs = {
     name: 'UNI',
     color: '#fcc19b',
   },
+  link_idr: {
+    asset: 8.86,
+    name: 'LINK',
+    color: '#fcc19b',
+  },
   doge_idr: {
     asset: 716.3,
     name: 'DOGE',
@@ -66,7 +71,7 @@ const pairs = {
   },
 };
 
-const modal = 59821917 ;
+const modal = 64821917 - 2500000 ;
 
 let timer;
 
