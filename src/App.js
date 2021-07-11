@@ -15,7 +15,7 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0,
+    asset: 0.01017401,
     name: 'BTC',
     color: '#EBAC1C'
   },
@@ -71,7 +71,7 @@ const pairs = {
   },
 };
 
-const modal = 64821917 - 2500000 ;
+const modal = 69821917 - 2500000 ;
 
 let timer;
 
@@ -80,7 +80,7 @@ export default function App() {
   const [summary, setSummary] = useState({});
   const [precent, setPercent] = useState(0);
   const [BTCTotal, setBTCTotal] = useState(0);
-  
+    
   useEffect(() => {
     clearInterval(timer);
     const fetchData = async () => {
