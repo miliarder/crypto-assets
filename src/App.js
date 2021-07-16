@@ -24,54 +24,54 @@ const pairs = {
     name: 'ETH',
     color: '#000000',
   },
-  xrp_idr: {
-    asset: 156.46,
-    name: 'XRP',
-    color: '#5CACDD'
+  ada_idr: {
+    asset: 1038.320389 + 86.10381000,
+    name: 'ADA',
+    color: '#1365EA'
   },
   theta_idr: {
     asset: 100.9453 + 12.003,
     name: 'THETA',
     color: '#5C50DD'
   },
-  tfuel_idr: {
-    asset: 1280.89449439,
-    name: 'TFUEL',
-    color: '#CFE542'
-  },
-  ada_idr: {
-    asset: 1038.320389 + 86.10381000,
-    name: 'ADA',
-    color: '#1365EA'
-  },
   bnb_idr: {
     asset: 0.7497604,
     name: 'BNB',
     color: '#FC5731'
   },
+/*  xrp_idr: {
+    asset: 0,
+    name: 'XRP',
+    color: '#5CACDD'
+  },
+  tfuel_idr: {
+    asset: 0,
+    name: 'TFUEL',
+    color: '#CFE542'
+  },
   uni_idr: {
-    asset: 17.097,
+    asset: 0,
     name: 'UNI',
     color: '#fcc19b',
   },
   link_idr: {
-    asset: 8.86,
+    asset: 0,
     name: 'LINK',
     color: '#fcc19b',
   },
   doge_idr: {
-    asset: 716.3,
+    asset: 0,
     name: 'DOGE',
     color: '#fce51c',
-  },
+  },*/
   usdt_idr: {
-    asset: 0,
+    asset: 1129,
     name: 'USDT',
     color: '#8c8c8c'
   },
 };
 
-const modal = 69821917 - 2500000 ;
+const modal = 69821917 ;
 
 let timer;
 
