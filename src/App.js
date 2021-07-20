@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import ImageMasonry from 'react-image-masonry';
 import { Chart } from 'react-google-charts';
 import Item from './components/Item';
+import Note from './components/Note';
 import redDot from './img/red-dot.png';
 import greenDot from './img/green-dot.png';
 import './style.scss';
@@ -71,7 +72,7 @@ const pairs = {
   },
 };
 
-const modal = 61419031 ;
+const modal = 61419031;
 
 let timer;
 
@@ -194,6 +195,8 @@ export default function App() {
 
             {/* !isLoss && ` | TP ${TP}% 
             or ${TPwtBTC}% ALTs` */}
+            
+            {isLoss && <Note total={grandTotal} losses={Math.abs(gain)}/>}
           </div>
         )}
       </div>
