@@ -16,27 +16,27 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0.02108476,
+    asset: 0.01750036,
     name: 'BTC',
     color: '#EBAC1C'
   },
   eth_idr: {
-    asset: 0.31803165,
+    asset: 0.26079165,
     name: 'ETH',
     color: '#000000',
   },
   ada_idr: {
-    asset: 1038.320389 + 86.10381000,
+    asset: 922.14,
     name: 'ADA',
     color: '#1365EA'
   },
   theta_idr: {
-    asset: 100.9453 + 12.003,
+    asset: 92.9453,
     name: 'THETA',
     color: '#5C50DD'
   },
   bnb_idr: {
-    asset: 0.7497604,
+    asset: 0.6151854,
     name: 'BNB',
     color: '#FC5731'
   },
@@ -72,7 +72,7 @@ const pairs = {
   },
 };
 
-const modal = 61419031;
+const modal = 50879047;
 
 let timer;
 
