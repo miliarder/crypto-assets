@@ -21,12 +21,12 @@ const pairs = {
     color: '#EBAC1C'
   },
   eth_idr: {
-    asset: 0.26079165,
+    asset: 0.56478735,
     name: 'ETH',
     color: '#000000',
   },
   ada_idr: {
-    asset: 922.14,
+    asset: 553.115524,
     name: 'ADA',
     color: '#1365EA'
   },
@@ -72,7 +72,7 @@ const pairs = {
   },
 };
 
-const modal = 50879047;
+const modal = 61419031 - 4971934 - 2200714 - 3367336;
 
 let timer;
 
