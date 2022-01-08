@@ -16,7 +16,7 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0.01750036,
+    asset: 0.03399115, // 0.01750036 + 0.01649079
     name: 'BTC',
     color: '#EBAC1C'
   },
@@ -72,7 +72,7 @@ const pairs = {
   },
 };
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000;
 
 let timer;
 
@@ -81,7 +81,7 @@ export default function App() {
   const [summary, setSummary] = useState({});
   const [precent, setPercent] = useState(0);
   const [BTCTotal, setBTCTotal] = useState(0);
-    
+
   useEffect(() => {
     clearInterval(timer);
     const fetchData = async () => {
@@ -104,11 +104,11 @@ export default function App() {
           const color = pairs[key].color;
           const { last: price } = tickers[key];
           const v = coin * Number(price);
-          
+
           if(name === 'BTC') {
             setBTCTotal(v);
           }
-          
+
           summaryData[key] = {
             pair: key.replace('_','').toUpperCase(),
             color,
@@ -143,12 +143,12 @@ export default function App() {
 
   const isLoss = grandTotal < modal;
   const gain = grandTotal - modal;
-  
+
   useEffect(() => {
     const favicon = document.getElementById('favicon');
     favicon.href = isLoss ? redDot : greenDot;
   }, [isLoss]);
-  
+
   const TP = (gain / (grandTotal / 100)).toFixed(1);
   const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
 
@@ -193,9 +193,9 @@ export default function App() {
               {formatter.format(gain)} ({precent}%)
             </strong>
 
-            {/* !isLoss && ` | TP ${TP}% 
+            {/* !isLoss && ` | TP ${TP}%
             or ${TPwtBTC}% ALTs` */}
-            
+
             {isLoss && <Note total={grandTotal} losses={Math.abs(gain)}/>}
           </div>
         )}
@@ -239,7 +239,7 @@ export default function App() {
         numCols={3}
         containerWidth={'100%'}
       />
-      
+
       <div style={{ display: 'none' }}>
         <img src={redDot} />
         <img src={greenDot} />
