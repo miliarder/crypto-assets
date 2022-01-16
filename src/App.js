@@ -77,6 +77,21 @@ const pairs = {
   },
 };
 
+function fngColouring(indexValue) {
+  let colorCode = ''
+  if (indexValue >= 90) { colorCode = '65c64c'}
+  if (indexValue <  90) { colorCode = '79d23c'}
+  if (indexValue <= 75) { colorCode = '9bbe44'}
+  if (indexValue <= 63) { colorCode = 'c6bf22'}
+  if (indexValue <= 54) { colorCode = 'dfce60'}
+  if (indexValue <= 46) { colorCode = 'd8bc59'}
+  if (indexValue <= 35) { colorCode = 'e39d64'}
+  if (indexValue <= 25) { colorCode = 'd17339'}
+  if (indexValue <= 10) { colorCode = 'b74d34'}
+
+  return colorCode
+}
+
 const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000;
 
 let timer;
@@ -87,7 +102,10 @@ export default function App() {
   const [precent, setPercent] = useState(0);
   const [BTCTotal, setBTCTotal] = useState(0);
 
+  const [fearIndex, setFearIndex] = useState([]);
+
   useEffect(() => {
+
     clearInterval(timer);
     const fetchData = async () => {
       try {
@@ -141,6 +159,18 @@ export default function App() {
         console.log('error', e);
         fetchData();
       }
+
+      try {
+        const res = await fetch(`https://api.alternative.me/fng/?limit=2`, {
+          cache: 'no-cache'
+        });
+
+        const data = await res.json();
+        console.log('data', data);
+        setFearIndex(data.data);
+      } catch (e){
+        console.log('error', e);
+      }
     };
 
     fetchData();
@@ -156,9 +186,11 @@ export default function App() {
 
   const TP = (gain / (grandTotal / 100)).toFixed(1);
   const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
+console.log(fearIndex);
+  const todayFearIndex = fearIndex?.[0];
 
   return (
-    <div style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
+    <div style={{backgroundColor: 'rgba(0, 0, 0, 0.8)', height: '100%'}}>
       <div className="table-responsive table-striped">
         <table className="table table table-dark table-striped">
           <thead>
@@ -229,6 +261,13 @@ export default function App() {
           }}
         />
       </div>
+
+      {todayFearIndex && <div style={{padding: 20}}>
+        <div className={`alert`} style={{backgroundColor: `#${fngColouring(+todayFearIndex?.value)}`}}>
+          <strong>Fear Index</strong>: {todayFearIndex?.value_classification} - <strong>{+todayFearIndex?.value}</strong>
+        </div>
+      </div>}
+     {/*
       <ImageMasonry
         imageUrls={[
           'https://media.giphy.com/media/XUojAIMYIIOQ9tpx2s/giphy.gif',
@@ -244,7 +283,7 @@ export default function App() {
         numCols={3}
         containerWidth={'100%'}
       />
-
+   */}
       <div style={{ display: 'none' }}>
         <img src={redDot} />
         <img src={greenDot} />
