@@ -40,6 +40,16 @@ const pairs = {
     name: 'BNB',
     color: '#FC5731'
   },
+  cake_idr: {
+    asset: 5.7943806,
+    name: 'CAKE',
+    color: '#5CACDD'
+  },
+  uni_idr: {
+    asset: 5.81466346,
+    name: 'UNI',
+    color: '#fcc19b',
+  },
 /*  xrp_idr: {
     asset: 0,
     name: 'XRP',
@@ -49,11 +59,6 @@ const pairs = {
     asset: 0,
     name: 'TFUEL',
     color: '#CFE542'
-  },
-  uni_idr: {
-    asset: 0,
-    name: 'UNI',
-    color: '#fcc19b',
   },
   link_idr: {
     asset: 0,
@@ -72,7 +77,7 @@ const pairs = {
   },
 };
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000;
 
 let timer;
 
