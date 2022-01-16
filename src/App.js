@@ -31,7 +31,7 @@ const pairs = {
     color: '#1365EA'
   },
   theta_idr: {
-    asset: 92.9453,
+    asset: 177.9221,
     name: 'THETA',
     color: '#5C50DD'
   },
@@ -72,7 +72,7 @@ const pairs = {
   },
 };
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000;
 
 let timer;
 
