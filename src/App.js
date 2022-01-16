@@ -264,7 +264,7 @@ console.log(fearIndex);
 
       {todayFearIndex && <div style={{padding: 20}}>
         <div className={`alert`} style={{backgroundColor: `#${fngColouring(+todayFearIndex?.value)}`}}>
-          <strong>Fear Index</strong>: {todayFearIndex?.value_classification} - <strong>{+todayFearIndex?.value}</strong>
+          <strong>Fear Index</strong>: {todayFearIndex?.value_classification} <strong>{+todayFearIndex?.value}</strong>
         </div>
       </div>}
      {/*
