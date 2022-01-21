@@ -50,6 +50,11 @@ const pairs = {
     name: 'UNI',
     color: '#fcc19b',
   },
+  link_idr: {
+    asset: 5.37634408,
+    name: 'LINK',
+    color: '#fcc19b',
+  },
 /*  xrp_idr: {
     asset: 0,
     name: 'XRP',
@@ -59,11 +64,6 @@ const pairs = {
     asset: 0,
     name: 'TFUEL',
     color: '#CFE542'
-  },
-  link_idr: {
-    asset: 0,
-    name: 'LINK',
-    color: '#fcc19b',
   },
   doge_idr: {
     asset: 0,
@@ -92,7 +92,7 @@ function fngColouring(indexValue) {
   return colorCode
 }
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000 + 1500000;
 
 let timer;
 
