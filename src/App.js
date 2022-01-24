@@ -16,7 +16,7 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0.03681553, // 0.01750036 + 0.01649079 + 0.00282438
+    asset: 0.04078917, // 0.01750036 + 0.01649079 + 0.00282438 + 0.00397364
     name: 'BTC',
     color: '#EBAC1C'
   },
@@ -92,7 +92,7 @@ function fngColouring(indexValue) {
   return colorCode
 }
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000 + 1500000 + 1500000;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000;
 
 let timer;
 
@@ -103,6 +103,7 @@ export default function App() {
   const [BTCTotal, setBTCTotal] = useState(0);
 
   const [fearIndex, setFearIndex] = useState([]);
+  const [rsi, setRsi] = useState(0);
 
   useEffect(() => {
 
@@ -166,9 +167,18 @@ export default function App() {
         });
 
         const data = await res.json();
-        console.log('data', data);
         setFearIndex(data.data);
       } catch (e){
+        console.log('error', e);
+      }
+
+      try {
+        const res = await fetch(`https://api.taapi.io/rsi?secret=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmRyb2JyYXllbkBnbWFpbC5jb20iLCJpYXQiOjE2NDI4ODQyNTksImV4cCI6Nzk1MDA4NDI1OX0.ZYR1fjAYGGkUgW1DpcUxYbB4cQ9ff9jHSJCWg5YShAc&exchange=binance&symbol=BTC/USDT&interval=1d`);
+        const data = await res.json();
+        if(data.value){
+          setRsi(data.value);
+        }
+      } catch (e) {
         console.log('error', e);
       }
     };
@@ -267,6 +277,10 @@ console.log(fearIndex);
           <strong>Fear Index</strong>: {todayFearIndex?.value_classification} <strong>{+todayFearIndex?.value}</strong>
         </div>
       </div>}
+
+      {rsi && (<div style={{padding: 20, paddingTop: 0, marginTop: -15, color: 'white'}}>
+        Daily RSI : <strong>{rsi.toFixed(2)}</strong>
+        </div>)}
      {/*
       <ImageMasonry
         imageUrls={[
