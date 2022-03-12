@@ -16,7 +16,7 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0.04078917, // 0.01750036 + 0.01649079 + 0.00282438 + 0.00397364
+    asset: 0.04616167, // 0.01750036 + 0.01649079 + 0.00282438 + 0.00397364 + 0.0053725
     name: 'BTC',
     color: '#EBAC1C'
   },
@@ -92,7 +92,7 @@ function fngColouring(indexValue) {
   return colorCode
 }
 
-const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000 + 2500000;
+const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 + 5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000 + 2500000 + 3000000;
 
 let timer;
 
@@ -278,7 +278,7 @@ console.log(fearIndex);
         </div>
       </div>}
 
-      {rsi && (<div style={{padding: 20, paddingTop: 0, marginTop: -15, color: 'white'}}>
+      {rsi > 0 && (<div style={{padding: 20, paddingTop: 0, marginTop: -15, color: 'white'}}>
         Daily RSI : <strong>{rsi.toFixed(2)}</strong>
         </div>)}
      {/*
