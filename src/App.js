@@ -297,6 +297,7 @@ console.log(fearIndex);
         numCols={3}
         containerWidth={'100%'}
       />
+
    */}
       <div style={{ display: 'none' }}>
         <img src={redDot} />
