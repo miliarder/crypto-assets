@@ -41,7 +41,7 @@ const pairs = {
     color: '#FC5731'
   },
   cake_idr: {
-    asset: 5.7943806,
+    asset: 5.7543806,
     name: 'CAKE',
     color: '#5CACDD'
   },
