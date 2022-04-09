@@ -21,7 +21,7 @@ const pairs = {
     color: '#EBAC1C'
   },
   eth_idr: {
-    asset: 0.56478735,
+    asset: 0.56278735,
     name: 'ETH',
     color: '#000000',
   },
