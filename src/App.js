@@ -55,12 +55,12 @@ const pairs = {
     name: 'LINK',
     color: '#fcc19b',
   },
-/*  xrp_idr: {
-    asset: 0,
-    name: 'XRP',
+  sol_idr: {
+    asset: 1.02218295,
+    name: 'SOL',
     color: '#5CACDD'
   },
-  tfuel_idr: {
+/*  tfuel_idr: {
     asset: 0,
     name: 'TFUEL',
     color: '#CFE542'
@@ -93,7 +93,7 @@ function fngColouring(indexValue) {
 }
 
 const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 +
-  5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000 + 2500000 + 3000000 + 3000000 + 2000000;
+  5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000 + 2500000 + 3000000 + 3000000 + 2000000 + 1500000;
 
 let timer;
 
