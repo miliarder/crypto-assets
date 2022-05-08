@@ -2,7 +2,7 @@
   "name": "react",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://sandropoluan.github.io/crypto-asset",
+  "homepage": "https://miliarder.github.io/crypto-assets",
   "dependencies": {
     "node-sass": "^6.0.0",
     "prop-types": ">=15",
