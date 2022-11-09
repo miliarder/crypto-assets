@@ -16,7 +16,7 @@ const formatter = new Intl.NumberFormat('id', {
 
 const pairs = {
   btc_idr: {
-    asset: 0.05400584 + 0.04710422,
+    asset: 0.10091006,
     name: 'BTC',
     color: '#EBAC1C'
   },
