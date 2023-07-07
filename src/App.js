@@ -36,7 +36,7 @@ const pairs = {
     color: '#5C50DD'
   },
   bnb_idr: {
-    asset: 0.6151854,
+    asset: 0.61486509,
     name: 'BNB',
     color: '#FC5731'
   },
