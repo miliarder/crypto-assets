@@ -17,19 +17,19 @@ const formatter = new Intl.NumberFormat('id', {
 const pairs = {
   btc_idr: {
     asset: 0.10091006 //cold
-        + 0.0353102, //tokocrypto
+      + 0.0353102, //tokocrypto
     name: 'BTC',
     color: '#EBAC1C'
   },
   eth_idr: {
     asset: 0.56278735 //cold
-        + 0.06709137, //tokocrypto
+      + 0.06709137, //tokocrypto
     name: 'ETH',
     color: '#000000',
   },
   ada_idr: {
     asset: 2497.666734 // 553.115524 + 283.0657 + 169.829 + 924.22351 + 567.433
-        + 305.15864, //tokocrypto
+      + 305.15864, //tokocrypto
     name: 'ADA',
     color: '#1365EA'
   },
@@ -44,8 +44,8 @@ const pairs = {
     color: '#FC5731'
   },
   cake_idr: {
-    asset: 5.7543806 
-    + 21.6, //indodax
+    asset: 5.7543806
+      + 21.6, //indodax
     name: 'CAKE',
     color: '#5CACDD'
   },
@@ -81,25 +81,58 @@ const pairs = {
   },
 };
 
+const BINACE_pairs = {
+  ONEUSDT: {
+    asset: 1853.43648,
+    name: 'ONE',
+    color: '#8c8c8c',
+    inUSD: true,
+  },
+  USDTBIDR: {
+    asset: 0,
+    name: 'USDT (Binance)',
+    color: '#8c8c8c',
+    inUSD: false,
+  }
+  // ADAUSDT: {
+  //   asset: 0,
+  //   name: 'ADA',
+  //   color: '#8c8c8c',
+  //   inUSD: true,
+  // },
+  // BNBUSDT: {
+  //   asset: 0,
+  //   name: 'BNB',
+  //   color: '#8c8c8c',
+  //   inUSD: true,
+  // },
+  // UNIUSDT: {
+  //   asset: 0,
+  //   name: 'UNI',
+  //   color: '#8c8c8c',
+  //   inUSD: true,
+  // }
+}
+
 function fngColouring(indexValue) {
   let colorCode = ''
-  if (indexValue >= 90) { colorCode = '65c64c'}
-  if (indexValue <  90) { colorCode = '79d23c'}
-  if (indexValue <= 75) { colorCode = '9bbe44'}
-  if (indexValue <= 63) { colorCode = 'c6bf22'}
-  if (indexValue <= 54) { colorCode = 'dfce60'}
-  if (indexValue <= 46) { colorCode = 'd8bc59'}
-  if (indexValue <= 35) { colorCode = 'e39d64'}
-  if (indexValue <= 25) { colorCode = 'd17339'}
-  if (indexValue <= 10) { colorCode = 'b74d34'}
+  if (indexValue >= 90) { colorCode = '65c64c' }
+  if (indexValue < 90) { colorCode = '79d23c' }
+  if (indexValue <= 75) { colorCode = '9bbe44' }
+  if (indexValue <= 63) { colorCode = 'c6bf22' }
+  if (indexValue <= 54) { colorCode = 'dfce60' }
+  if (indexValue <= 46) { colorCode = 'd8bc59' }
+  if (indexValue <= 35) { colorCode = 'e39d64' }
+  if (indexValue <= 25) { colorCode = 'd17339' }
+  if (indexValue <= 10) { colorCode = 'b74d34' }
 
   return colorCode
 }
 
 const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 +
   5000000 + 1000000 + 1500000 + 1500000 + 1500000 + 2000000 + 2500000 + 3000000 +
-    3000000 + 2000000 + 1500000 + 1500000 + 1500000 + 3000000 + 3000000 +
-    2483889 + 3500000 + 3000000 + 3000000 + 1000000 + 1000000 + 381600 + 619504 + 5000000 + 2504010 + 4000000 + 4000000 + 1500000 + 750000 + 500000 + 250000 + 3000000 + 5000000 + 800000;
+  3000000 + 2000000 + 1500000 + 1500000 + 1500000 + 3000000 + 3000000 +
+  2483889 + 3500000 + 3000000 + 3000000 + 1000000 + 1000000 + 381600 + 619504 + 5000000 + 2504010 + 4000000 + 4000000 + 1500000 + 750000 + 500000 + 250000 + 3000000 + 5000000 + 800000 + 400000;
 
 let timer;
 
@@ -117,12 +150,35 @@ export default function App() {
     clearInterval(timer);
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://indodax.com/api/summaries`, {
-          cache: 'no-cache'
-        });
-        const data = await res.json();
 
-        const { tickers } = data;
+        const requestArr = [];
+
+        requestArr.push(fetch(`https://api.binance.com/api/v3/ticker/price?symbol=USDTBIDR`, {
+          cache: 'no-cache'
+        }));
+
+
+        requestArr.push(fetch(`https://indodax.com/api/summaries`, {
+          cache: 'no-cache'
+        }))
+
+        for (let key in BINACE_pairs) {
+          const pair = BINACE_pairs[key];
+          const { name } = pair;
+
+          requestArr.push(fetch(`https://api.binance.com/api/v3/ticker/price?symbol=` + key, {
+            cache: 'no-cache'
+          }));
+
+        }
+
+        const [BIDRRes, idxRes, ...tkoRes] = await Promise.all(requestArr);
+
+        const {price: IDRPrice, symbol} = await BIDRRes.json();
+
+
+        const idxData = await idxRes.json();
+        const { tickers } = idxData;
         let total = 0;
 
         const summaryData = {};
@@ -136,12 +192,12 @@ export default function App() {
           const { last: price } = tickers[key];
           const v = coin * Number(price);
 
-          if(name === 'BTC') {
+          if (name === 'BTC') {
             setBTCTotal(v);
           }
 
           summaryData[key] = {
-            pair: key.replace('_','').toUpperCase(),
+            pair: key.replace('_', '').toUpperCase(),
             color,
             name,
             coin,
@@ -149,6 +205,29 @@ export default function App() {
             total: v
           };
           total += v;
+        }
+
+        for (let i in tkoRes) {
+          const res = await tkoRes[i].json();
+          let { price, symbol } = res;
+          if(symbol in BINACE_pairs){
+            const {asset, name, color, inUSD} = BINACE_pairs[symbol];
+            if(inUSD){
+              price = IDRPrice * price;
+            }
+
+            const v = asset * Number(price);
+            summaryData[symbol] = {
+              pair: symbol,
+              color,
+              name,
+              coin: asset,
+              price,
+              total: v,
+            }
+
+            total += v;
+          }
         }
 
         const growthPercent = ((total - modal) / (modal / 100)).toFixed(1);
@@ -175,14 +254,14 @@ export default function App() {
 
         const data = await res.json();
         setFearIndex(data.data);
-      } catch (e){
+      } catch (e) {
         console.log('error', e);
       }
 
       try {
         const res = await fetch(`https://api.taapi.io/rsi?secret=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmRyb2JyYXllbkBnbWFpbC5jb20iLCJpYXQiOjE2NDI4ODQyNTksImV4cCI6Nzk1MDA4NDI1OX0.ZYR1fjAYGGkUgW1DpcUxYbB4cQ9ff9jHSJCWg5YShAc&exchange=binance&symbol=BTC/USDT&interval=1d`);
         const data = await res.json();
-        if(data.value){
+        if (data.value) {
           setRsi(data.value);
         }
       } catch (e) {
@@ -203,11 +282,10 @@ export default function App() {
 
   const TP = (gain / (grandTotal / 100)).toFixed(1);
   const TPwtBTC = (gain / ((grandTotal - BTCTotal) / 100)).toFixed(1);
-console.log(fearIndex);
   const todayFearIndex = fearIndex?.[0];
 
   return (
-    <div style={{backgroundColor: 'rgba(0, 0, 0, 0.8)', height: '100%'}}>
+    <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', height: '100%' }}>
       <div className="table-responsive table-striped">
         <table className="table table table-dark table-striped">
           <thead>
@@ -215,7 +293,7 @@ console.log(fearIndex);
               <th>Asset</th>
               <th>Price</th>
               <th>Total</th>
-             {/* <th>TP</th>*/}
+              {/* <th>TP</th>*/}
             </tr>
           </thead>
           <tbody>
@@ -250,7 +328,7 @@ console.log(fearIndex);
             {/* !isLoss && ` | TP ${TP}%
             or ${TPwtBTC}% ALTs` */}
 
-            {isLoss && <Note total={grandTotal} losses={Math.abs(gain)}/>}
+            {isLoss && <Note total={grandTotal} losses={Math.abs(gain)} />}
           </div>
         )}
       </div>
@@ -279,16 +357,16 @@ console.log(fearIndex);
         />
       </div>
 
-      {todayFearIndex && <div style={{padding: 20}}>
-        <div className={`alert`} style={{backgroundColor: `#${fngColouring(+todayFearIndex?.value)}`}}>
+      {todayFearIndex && <div style={{ padding: 20 }}>
+        <div className={`alert`} style={{ backgroundColor: `#${fngColouring(+todayFearIndex?.value)}` }}>
           <strong>Fear Index</strong>: {todayFearIndex?.value_classification} <strong>{+todayFearIndex?.value}</strong>
         </div>
       </div>}
 
-      {rsi > 0 && (<div style={{padding: 20, paddingTop: 0, marginTop: -15, color: 'white'}}>
+      {rsi > 0 && (<div style={{ padding: 20, paddingTop: 0, marginTop: -15, color: 'white' }}>
         Daily RSI : <strong>{rsi.toFixed(2)}</strong>
-        </div>)}
-     {/*
+      </div>)}
+      {/*
       <ImageMasonry
         imageUrls={[
           'https://media.giphy.com/media/XUojAIMYIIOQ9tpx2s/giphy.gif',
