@@ -81,7 +81,7 @@ const pairs = {
   },
   zil_idr: {
     asset: 2898.00745595,
-    name: 'ENJ',
+    name: 'ZIL',
     color: '#fce51c',
   },
   usdt_idr: {
