@@ -117,8 +117,13 @@ const pairs = {
     name: 'MATIC',
     color: '#fce51c',
   },
+  vet_idr: {
+    asset: 3352.37532,
+    name: 'VET',
+    color: '#fce51c',
+  },
   usdt_idr: {
-    asset: 126.308061,
+    asset: 0,
     name: 'USDT',
     color: '#8c8c8c'
   },
