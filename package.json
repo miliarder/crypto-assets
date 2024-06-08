@@ -21,6 +21,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "ajv": "^7.2.4",
     "gh-pages": "^3.2.0",
     "react-scripts": "latest"
   },
