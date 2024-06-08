@@ -1,0 +1,2 @@
+.gain{animation:fadeItGain 1s ease-in-out}.loss{animation:fadeItLoss 1s ease-in-out}.bold{font-weight:600}.asset-name,.asset-name:hover{color:#fff}@keyframes fadeItGain{0%{background-color:inherit}50%{background-color:#2cda0a}to{background-color:inherit}}@keyframes fadeItLoss{0%{background-color:inherit}50%{background-color:#da0a0a}to{background-color:inherit}}html{background-color:#000c}h1,p{font-family:Lato}.alert{color:#fff!important}.alert.alert-success{background-color:#0a561c}.alert.alert-danger{background-color:#8e0511}
+/*# sourceMappingURL=main.b1c64dce.css.map*/

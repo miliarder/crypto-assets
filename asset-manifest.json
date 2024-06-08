@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.css": "/crypto-assets/static/css/main.2ddff636.chunk.css",
-    "main.js": "/crypto-assets/static/js/main.79786881.chunk.js",
-    "main.js.map": "/crypto-assets/static/js/main.79786881.chunk.js.map",
-    "runtime-main.js": "/crypto-assets/static/js/runtime-main.124dfd2c.js",
-    "runtime-main.js.map": "/crypto-assets/static/js/runtime-main.124dfd2c.js.map",
-    "static/js/2.0dc0233c.chunk.js": "/crypto-assets/static/js/2.0dc0233c.chunk.js",
-    "static/js/2.0dc0233c.chunk.js.map": "/crypto-assets/static/js/2.0dc0233c.chunk.js.map",
+    "main.css": "/crypto-assets/static/css/main.b1c64dce.css",
+    "main.js": "/crypto-assets/static/js/main.9fb120a8.js",
     "index.html": "/crypto-assets/index.html",
-    "static/css/main.2ddff636.chunk.css.map": "/crypto-assets/static/css/main.2ddff636.chunk.css.map",
-    "static/js/2.0dc0233c.chunk.js.LICENSE.txt": "/crypto-assets/static/js/2.0dc0233c.chunk.js.LICENSE.txt"
+    "main.b1c64dce.css.map": "/crypto-assets/static/css/main.b1c64dce.css.map",
+    "main.9fb120a8.js.map": "/crypto-assets/static/js/main.9fb120a8.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.124dfd2c.js",
-    "static/js/2.0dc0233c.chunk.js",
-    "static/css/main.2ddff636.chunk.css",
-    "static/js/main.79786881.chunk.js"
+    "static/css/main.b1c64dce.css",
+    "static/js/main.9fb120a8.js"
   ]
 }
