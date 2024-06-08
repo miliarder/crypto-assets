@@ -25,7 +25,7 @@ const pairs = {
   eth_idr: {
     asset: 0.56278735 //cold
       + 0.06709137 //tokocrypto
-      + 0.17536843, //indodax
+      + 0.20830887, //indodax
     name: 'ETH',
     color: '#000000',
   },
@@ -42,7 +42,7 @@ const pairs = {
     color: '#5C50DD'
   },
   tfuel_idr: {
-    asset: 2365.3707906,
+    asset: 2365.3707906, //indodax
     name: 'TFUEL',
     color: '#5C50DD'
   },
@@ -58,12 +58,12 @@ const pairs = {
     color: '#5CACDD'
   },
   uni_idr: {
-    asset: 5.81466346,
+    asset: 5.81466346, //indodax
     name: 'UNI',
     color: '#fcc19b',
   },
   link_idr: {
-    asset: 5.37634408,
+    asset: 9.0861151, //indodax
     name: 'LINK',
     color: '#fcc19b',
   },
@@ -83,42 +83,43 @@ const pairs = {
     color: '#fce51c',
   },
   enj_idr: {
-    asset: 185.29151978,
+    asset: 185.29151978, //indodax
     name: 'ENJ',
     color: '#fce51c',
   },
   zil_idr: {
-    asset: 2898.00745595,
+    asset: 2898.00745595, //indodax
     name: 'ZIL',
     color: '#fce51c',
   },
   near_idr: {
-    asset: 16.89676271,
+    asset: 16.89676271, //indodax
     name: 'NEAR',
     color: '#fce51c',
   },
   sushi_idr: {
-    asset: 40.72509417,
+    asset: 40.72509417, //indodax
     name: 'SUSHI',
     color: '#fce51c',
   },
   shib_idr: {
-    asset: 6542256,
+    asset: 6542256, //indodax
     name: 'SHIB',
     color: '#fce51c',
   },
   arb_idr: {
-    asset: 72.61775001,
+    asset: 132.65084529, //indodax
     name: 'ARB',
     color: '#fce51c',
   },
   matic_idr: {
-    asset: 117.04796,
+    asset: 117.04796 + //tokocrypto
+           93.87105246, //indodax
     name: 'MATIC',
     color: '#fce51c',
   },
   vet_idr: {
-    asset: 3352.37532,
+    asset: 3352.37532, //tokocrypto
     name: 'VET',
     color: '#fce51c',
   },
@@ -131,7 +132,7 @@ const pairs = {
 
 const BINACE_pairs = {
   ONEUSDT: {
-    asset: 3749.04183,
+    asset: 3749.04183, //tokocrypto
     name: 'ONE',
     color: '#8c8c8c',
     inUSD: true,
@@ -182,7 +183,7 @@ const modal = 61419031 - 4971934 - 2200714 - 3367336 + 10000000 + 5000000 +
   3000000 + 2000000 + 1500000 + 1500000 + 1500000 + 3000000 + 3000000 +
   2483889 + 3500000 + 3000000 + 3000000 + 1000000 + 1000000 + 381600 + 619504 + 5000000 +
   2504010 + 4000000 + 4000000 + 1500000 + 750000 + 500000 + 250000 + 3000000 + 5000000 + 800000 + 400000 + 400000 + 1003000 +
-  1000000 + 10000000 + 10000000 + 5000000 + 2000000 + 2000000 + 2000000 + 4304534;
+  1000000 + 10000000 + 10000000 + 5000000 + 2000000 + 2000000 + 2000000 + 4304534 + 5000000;
 
 let timer;
 
