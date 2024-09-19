@@ -113,10 +113,10 @@ const pairs = {
     name: 'ARB',
     color: '#fce51c',
   },
-  matic_idr: {
+  pol_idr: {
     asset: 117.04796 + //tokocrypto
            93.87105246, //indodax
-    name: 'MATIC',
+    name: 'POL',
     color: '#fce51c',
   },
   vet_idr: {
