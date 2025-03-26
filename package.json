@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://miliarder.github.io/crypto-assets",
   "dependencies": {
-    "node-sass": "^6.0.0",
     "prop-types": ">=15",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
@@ -23,7 +22,8 @@
   "devDependencies": {
     "ajv": "^7.2.4",
     "gh-pages": "^3.2.0",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "sass": "^1.86.0"
   },
   "browserslist": {
     "production": [
