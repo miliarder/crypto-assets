@@ -218,7 +218,7 @@ export default function App() {
         }));
 
 
-        requestArr.push(fetch(`https://indodax.com/api/summaries`, {
+        requestArr.push(fetch(`https://www.sandro.id/indodax-summaries`, {
           cache: 'no-cache'
         }))
 
