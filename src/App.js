@@ -213,7 +213,7 @@ export default function App() {
 
         const requestArr = [];
 
-        requestArr.push(fetch(`https://api.binance.com/api/v3/ticker/price?symbol=USDTBIDR`, {
+        requestArr.push(fetch(`https://www.sandro.id/binance-ticker-price?symbol=USDTBIDR`, {
           cache: 'no-cache'
         }));
 
@@ -226,7 +226,7 @@ export default function App() {
           const pair = BINACE_pairs[key];
           const { name } = pair;
 
-          requestArr.push(fetch(`https://api.binance.com/api/v3/ticker/price?symbol=` + key, {
+          requestArr.push(fetch(`https://www.sandro.id/binance-ticker-price?symbol=` + key, {
             cache: 'no-cache'
           }));
 
