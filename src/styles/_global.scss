@@ -1,0 +1,21 @@
+@import 'variables';
+
+html {
+  background-color: $bg-dark;
+}
+
+h1, p {
+  font-family: $font-family;
+}
+
+.alert {
+  color: $text-white !important;
+  
+  &.alert-success {
+    background-color: $success-bg;
+  }
+  
+  &.alert-danger {
+    background-color: $danger-bg;
+  }
+}

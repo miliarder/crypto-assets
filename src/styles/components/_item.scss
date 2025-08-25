@@ -1,0 +1,47 @@
+@import '../variables';
+
+.portfolio-item {
+  &.gain {
+    animation: fadeItGain $animation-duration ease-in-out;
+  }
+
+  &.loss {
+    animation: fadeItLoss $animation-duration ease-in-out;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.asset-name {
+  color: $text-white;
+  
+  &:hover {
+    color: $text-white;
+  }
+}
+
+@keyframes fadeItGain {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: $gain-color;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+@keyframes fadeItLoss {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: $loss-color;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
