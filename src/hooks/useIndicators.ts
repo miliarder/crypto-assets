@@ -1,15 +1,24 @@
 import { useState, useEffect } from 'react';
 import { FearGreedService, RSIService } from '../services/indicators';
+import type { FearGreedIndexData } from '../types';
+
+interface UseIndicatorsReturn {
+  fearIndex: FearGreedIndexData[];
+  rsi: number;
+  todayFearIndex?: FearGreedIndexData;
+  isLoading: boolean;
+  refetch: () => Promise<void>;
+}
 
 /**
  * Custom hook for managing market indicators (Fear & Greed Index, RSI)
  */
-export function useIndicators() {
-  const [fearIndex, setFearIndex] = useState([]);
-  const [rsi, setRSI] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+export function useIndicators(): UseIndicatorsReturn {
+  const [fearIndex, setFearIndex] = useState<FearGreedIndexData[]>([]);
+  const [rsi, setRSI] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const fetchIndicators = async () => {
+  const fetchIndicators = async (): Promise<void> => {
     setIsLoading(true);
 
     // Fetch Fear & Greed Index

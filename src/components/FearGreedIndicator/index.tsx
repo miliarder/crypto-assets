@@ -1,7 +1,8 @@
 import React from 'react';
 import { getFearGreedColor } from '../../utils/colors';
+import type { FearGreedIndicatorProps } from '../../types';
 
-function FearGreedIndicator({ fearIndex }) {
+function FearGreedIndicator({ fearIndex }: FearGreedIndicatorProps): React.JSX.Element | null {
   if (!fearIndex) return null;
 
   const colorCode = getFearGreedColor(+fearIndex.value);

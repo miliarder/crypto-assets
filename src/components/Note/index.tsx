@@ -1,6 +1,7 @@
 import React from "react";
+import type { NoteProps } from '../../types';
 
-export default function Note({total, losses}) {
+export default function Note({total, losses}: NoteProps) {
   
   const percent = (losses / (total / 100)).toFixed(1);
   

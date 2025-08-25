@@ -1,4 +1,6 @@
-export const ASSET_PAIRS = {
+import type { AssetPair, BinancePair } from '../types';
+
+export const ASSET_PAIRS: Record<string, AssetPair> = {
   btc_idr: {
     asset: 0.10091006 // cold
       + 0.05115856 // tokocrypto
@@ -122,7 +124,7 @@ export const ASSET_PAIRS = {
   },
 };
 
-export const BINANCE_PAIRS = {
+export const BINANCE_PAIRS: Record<string, BinancePair> = {
   ONEUSDT: {
     asset: 3749.04183, // tokocrypto
     name: 'ONE',

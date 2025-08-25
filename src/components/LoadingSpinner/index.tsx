@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoadingSpinner() {
+function LoadingSpinner(): React.JSX.Element {
   return (
     <div style={{ 
       display: 'flex', 

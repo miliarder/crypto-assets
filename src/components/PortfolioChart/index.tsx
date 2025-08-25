@@ -1,8 +1,9 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
 import { UI_CONFIG } from '../../constants/config';
+import type { PortfolioChartProps } from '../../types';
 
-function PortfolioChart({ summary }) {
+function PortfolioChart({ summary }: PortfolioChartProps): React.JSX.Element {
   const chartData = [
     ['Asset', 'Value'],
     ...Object.keys(summary).map(key => {

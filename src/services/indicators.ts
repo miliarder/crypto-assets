@@ -1,5 +1,6 @@
 import ApiService from './api';
 import { API_CONFIG } from '../constants/config';
+import type { FearGreedResponse, RSIResponse } from '../types';
 
 const apiService = new ApiService('');
 
@@ -9,12 +10,10 @@ const apiService = new ApiService('');
 export class FearGreedService {
   /**
    * Get Fear & Greed Index data
-   * @param {number} limit - Number of records to fetch
-   * @returns {Promise<object>} - Fear & Greed data
    */
-  static async getFearGreedIndex(limit = 2) {
+  static async getFearGreedIndex(limit: number = 2): Promise<FearGreedResponse> {
     const endpoint = `${API_CONFIG.ENDPOINTS.FEAR_GREED_INDEX}&limit=${limit}`;
-    return await apiService.get(endpoint);
+    return await apiService.get<FearGreedResponse>(endpoint);
   }
 }
 
@@ -24,9 +23,8 @@ export class FearGreedService {
 export class RSIService {
   /**
    * Get RSI data for BTC/USDT
-   * @returns {Promise<object>} - RSI data
    */
-  static async getBTCRSI() {
-    return await apiService.get(API_CONFIG.ENDPOINTS.RSI);
+  static async getBTCRSI(): Promise<RSIResponse> {
+    return await apiService.get<RSIResponse>(API_CONFIG.ENDPOINTS.RSI);
   }
 }

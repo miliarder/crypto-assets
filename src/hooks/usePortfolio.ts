@@ -10,19 +10,35 @@ import {
   calculateTakeProfit,
   calculateTakeProfitWithoutBTC
 } from '../utils/calculations';
+import { currencyFormatter } from '../utils/formatters';
+import type { PortfolioSummary, BinanceTickerResponse, ServiceResponse } from '../types';
+
+interface UsePortfolioReturn {
+  grandTotal: number;
+  summary: PortfolioSummary;
+  percent: string;
+  btcTotal: number;
+  isLoading: boolean;
+  error: string | null;
+  isLoss: boolean;
+  gain: number;
+  takeProfit: string;
+  takeProfitWithoutBTC: string;
+  refetch: () => Promise<void>;
+}
 
 /**
  * Custom hook for managing portfolio data and calculations
  */
-export function usePortfolio() {
-  const [grandTotal, setGrandTotal] = useState(0);
-  const [summary, setSummary] = useState({});
-  const [percent, setPercent] = useState(0);
-  const [btcTotal, setBTCTotal] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+export function usePortfolio(): UsePortfolioReturn {
+  const [grandTotal, setGrandTotal] = useState<number>(0);
+  const [summary, setSummary] = useState<PortfolioSummary>({});
+  const [percent, setPercent] = useState<string>('0');
+  const [btcTotal, setBTCTotal] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const fetchPortfolioData = async () => {
+  const fetchPortfolioData = async (): Promise<void> => {
     try {
       setError(null);
       
@@ -37,23 +53,24 @@ export function usePortfolio() {
       const binanceResponses = await BinanceService.getAllPrices();
       
       let total = indodaxTotal;
-      const finalSummary = { ...summaryData };
+      const finalSummary: PortfolioSummary = { ...summaryData };
 
       // Process Binance responses
       for (let i = 0; i < binanceResponses.length; i++) {
         const response = binanceResponses[i];
         
-        if (response.error) {
+        if ('error' in response) {
           console.warn(`Error fetching Binance data:`, response.error);
           continue;
         }
 
-        const { price, symbol } = response;
+        const binanceResponse = response as BinanceTickerResponse;
+        const { price, symbol } = binanceResponse;
         
         if (symbol in BINANCE_PAIRS) {
           const { asset, name, color, inUSD } = BINANCE_PAIRS[symbol];
-          const adjustedPrice = inUSD ? idrPrice * price : price;
-          const value = asset * Number(adjustedPrice);
+          const adjustedPrice = inUSD ? Number(idrPrice) * Number(price) : Number(price);
+          const value = asset * adjustedPrice;
 
           finalSummary[symbol] = {
             pair: symbol,
@@ -83,16 +100,11 @@ export function usePortfolio() {
 
       // Update document title
       const gain = calculateGain(total);
-      document.title = `My Gain: ${new Intl.NumberFormat('id', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-      }).format(gain)} (${growthPercent}%)`;
+      document.title = `My Gain: ${currencyFormatter.format(gain)} (${growthPercent}%)`;
 
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching portfolio data:', err);
-      setError(err.message);
+      setError(err?.message || 'Unknown error occurred');
       setIsLoading(false);
     }
   };

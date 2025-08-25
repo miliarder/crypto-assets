@@ -1,21 +1,22 @@
 import { API_CONFIG } from '../constants/config';
+import type { RequestConfig, ServiceResponse } from '../types';
 
 /**
  * Base API service class for making HTTP requests
  */
 class ApiService {
-  constructor(baseUrl = API_CONFIG.BASE_URL) {
+  private baseUrl: string;
+  private defaultOptions: RequestInit;
+
+  constructor(baseUrl: string = API_CONFIG.BASE_URL) {
     this.baseUrl = baseUrl;
     this.defaultOptions = API_CONFIG.FETCH_OPTIONS;
   }
 
   /**
    * Make a GET request
-   * @param {string} endpoint - API endpoint
-   * @param {object} options - Additional fetch options
-   * @returns {Promise} - Fetch promise
    */
-  async get(endpoint, options = {}) {
+  async get<T = any>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const url = endpoint.startsWith('http') ? endpoint : `${this.baseUrl}${endpoint}`;
     
     try {
@@ -38,12 +39,10 @@ class ApiService {
 
   /**
    * Make multiple parallel API requests
-   * @param {Array} requests - Array of request configs {endpoint, options}
-   * @returns {Promise<Array>} - Array of responses
    */
-  async getMultiple(requests) {
-    const promises = requests.map(({ endpoint, options }) => 
-      this.get(endpoint, options).catch(error => ({ error, endpoint }))
+  async getMultiple<T = any>(requests: RequestConfig[]): Promise<Array<T | ServiceResponse>> {
+    const promises = requests.map(({ endpoint, options = {} }) => 
+      this.get<T>(endpoint, options).catch((error: Error) => ({ error, endpoint }))
     );
 
     return await Promise.all(promises);

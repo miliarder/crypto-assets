@@ -7,11 +7,11 @@ export const currencyFormatter = new Intl.NumberFormat('id', {
 });
 
 // Percentage formatter
-export const formatPercentage = (value, decimals = 1) => {
+export const formatPercentage = (value: number, decimals: number = 1): string => {
   return Number(value).toFixed(decimals);
 };
 
 // Number formatter with specific decimal places
-export const formatNumber = (value, decimals = 2) => {
+export const formatNumber = (value: number, decimals: number = 2): string => {
   return Number(value).toFixed(decimals);
 };

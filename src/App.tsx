@@ -10,7 +10,7 @@ import redDot from './img/red-dot.png';
 import greenDot from './img/green-dot.png';
 import './styles/main.scss';
 
-export default function App() {
+export default function App(): React.JSX.Element {
   // Custom hooks for data management
   const {
     grandTotal,

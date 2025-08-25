@@ -8,7 +8,6 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-google-charts": "^3.0.15",
-    "react-image-masonry": "^0.4.0",
     "react-minimal-pie-chart": "^8.2.0"
   },
   "scripts": {
@@ -20,10 +19,15 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "@types/react": "^17.0.88",
+    "@types/react-dom": "^17.0.26",
     "ajv": "^7.2.4",
     "gh-pages": "^3.2.0",
     "react-scripts": "latest",
-    "sass": "^1.86.0"
+    "sass": "^1.86.0",
+    "typescript": "^4.9.5"
   },
   "browserslist": {
     "production": [

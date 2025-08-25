@@ -1,8 +1,9 @@
 import React from 'react';
 import { currencyFormatter } from '../../utils/formatters';
 import Note from '../Note';
+import type { PortfolioSummaryProps } from '../../types';
 
-function PortfolioSummary({ grandTotal, gain, percent, isLoss }) {
+function PortfolioSummary({ grandTotal, gain, percent, isLoss }: PortfolioSummaryProps): React.JSX.Element | null {
   if (grandTotal <= 0) return null;
 
   return (

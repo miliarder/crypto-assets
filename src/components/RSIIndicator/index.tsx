@@ -1,7 +1,8 @@
 import React from 'react';
 import { formatNumber } from '../../utils/formatters';
+import type { RSIIndicatorProps } from '../../types';
 
-function RSIIndicator({ rsi }) {
+function RSIIndicator({ rsi }: RSIIndicatorProps): React.JSX.Element | null {
   if (rsi <= 0) return null;
 
   return (

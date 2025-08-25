@@ -1,7 +1,8 @@
 import React from 'react';
 import Item from '../Item';
+import type { PortfolioTableProps } from '../../types';
 
-function PortfolioTable({ summary, grandTotal, isLoss, takeProfit, takeProfitWithoutBTC }) {
+function PortfolioTable({ summary, grandTotal, isLoss, takeProfit, takeProfitWithoutBTC }: PortfolioTableProps): React.JSX.Element {
   return (
     <div className="table-responsive table-striped">
       <table className="table table table-dark table-striped">
