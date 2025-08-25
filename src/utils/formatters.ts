@@ -3,7 +3,7 @@ export const currencyFormatter = new Intl.NumberFormat('id', {
   style: 'currency',
   currency: 'IDR',
   minimumFractionDigits: 0,
-  maximumFractionDigits: 0
+  maximumFractionDigits: 2
 });
 
 // Percentage formatter
