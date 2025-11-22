@@ -4,7 +4,7 @@ export const ASSET_PAIRS: Record<string, AssetPair> = {
   btc_idr: {
     asset: 0.10091006 // cold
       + 0.05115856 // tokocrypto
-      + 0.01615652, // indodax
+      + 0.03328911, // indodax
     name: 'BTC',
     color: '#EBAC1C'
   },
